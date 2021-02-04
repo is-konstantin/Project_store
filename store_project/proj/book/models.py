@@ -18,11 +18,13 @@ class Genre(models.Model):
     genre_name = models.CharField("Name", max_length = 100)
     genre_description = models.CharField("Description", max_length = 400)
     def __str__(self):
-        return self.author_name
+        return self.genre_name
 
 class Publishing_house(models.Model):
     publishing_house_name = models.CharField("Name", max_length = 100)
     publishing_house_description = models.CharField("Description", max_length = 400)
     def __str__(self):
         return self.publishing_house_name
+
+
 
