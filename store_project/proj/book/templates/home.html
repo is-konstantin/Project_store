@@ -6,8 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello first author</h1>
-    {{author.id}} | {{author.author_name}} | {{author.author_description}}<br>
+    <h1> {{pk}} </h1>
+    <table border="1"> 
+        <tr>
+            <td> # </td>
+            <td> Name </td>
+            <td> Description </td>
+            <td> Action </td>
+        </tr>
+        {% for auth in authors %}
+        <tr>
+            <td> {{ auth.pk }} </td>
+            <td> <a href = "{% url 'author-detail' auth.pk %}"> {{ auth.author_name }}</a> </a></td>
+            <td> {{ auth.author_description }} </td>
+            <td> <a href = "{% url 'author-delete' auth.pk %}"> Delete </a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
 
 </body>
 </html>
