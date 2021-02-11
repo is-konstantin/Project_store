@@ -20,6 +20,11 @@ from book import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authors/', views.authors_list, name = "authors-list"),
+    path('authors-cbv/', views.AuthorsList.as_view() , name = "authors-list_cbv"),
     path('authors/<int:pk>/', views.authors_detail, name = "author-detail"),
+    path('authors_cbv/<int:pk>/', views.AuthorDetail.as_view(), name = "author-detail_cbv"),
     path('authors-delete/<int:pk>/', views.authors_delete, name = "author-delete"),
+    path('authors-delete-cbv/<int:pk>/', views.AuthorDelete.as_view() , name = "author-delete_cbv"),
+    path('author-create-cbv/', views.AuthorCrate.as_view(), name = "author-create_cbv"),
+    path('author-update-cbv/<int:pk>/', views.AuthorUpdate.as_view(), name = "author-update_cbv"),
 ]

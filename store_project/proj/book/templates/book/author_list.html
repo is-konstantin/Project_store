@@ -14,16 +14,20 @@
             <td> Description </td>
             <td> Action </td>
         </tr>
-        {% for auth in authors %}
+        {% for auth in object_list %}
         <tr>
             <td> {{ auth.pk }} </td>
             <td> <a href = "{% url 'author-detail_cbv' auth.pk %}"> {{ auth.author_name }}</a> </a></td>
             <td> {{ auth.author_description }} </td>
-            <td> <a href = "{% url 'author-delete_cbv' auth.pk %}"> Delete </a> </td>
+            <td> 
+                <a href = "{% url 'author-delete_cbv' auth.pk %}"> Delete </a> 
+                <a href="{% url 'author-update_cbv' auth.pk %}"> Update</a>                                                        
+            
+            </td>
         </tr>
         {% endfor %}
     </table>
-    
+    <a href=" {% url 'author-create_cbv' %} "> Add Author </a>
 
 </body>
 </html>

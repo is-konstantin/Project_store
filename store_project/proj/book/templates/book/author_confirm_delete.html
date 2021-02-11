@@ -6,9 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Author name {{object.author_name}} </h1>
-    <a href=" {% url 'authors-list_cbv' %} "> All authors</a> </br>
-    {{ object.author_description }} </br>
+    <h1>Delete Author!</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button>Are you sure?</button>
 
+
+    </form>
 </body>
 </html>

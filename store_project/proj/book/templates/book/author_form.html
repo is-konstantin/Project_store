@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Author name {{object.author_name}} </h1>
-    <a href=" {% url 'authors-list_cbv' %} "> All authors</a> </br>
-    {{ object.author_description }} </br>
-
+    <h1> Add Author</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button>Add</button>
+    </form>
 </body>
 </html>
