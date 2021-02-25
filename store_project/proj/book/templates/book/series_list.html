@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> {{pk}} </h1>
+    <table border="1"> 
+        <tr>
+            <td> # </td>
+            <td> Name </td>
+            <td> Description </td>
+            <td> Action </td>
+        </tr>
+        {% for ser in object_list %}
+        <tr>
+            <td> {{ ser.pk }} </td>
+            <td> <a href = "{% url 'series-detail' ser.pk %}"> {{ ser.series_name }}</a> </a></td>
+            <td> {{ ser.series_description }} </td>
+            <td> 
+                <a href = "{% url 'series-delete' ser.pk %}"> Delete </a> 
+                <a href="{% url 'series-update' ser.pk %}"> Update</a>                                                        
+            
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href=" {% url 'series-create' %} "> Add Series </a>
+
+</body>
+</html>

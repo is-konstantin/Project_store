@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> {{pk}} </h1>
+    <table border="1"> 
+        <tr>
+            <td> # </td>
+            <td> Name </td>
+            <td> Description </td>
+            <td> Action </td>
+        </tr>
+        {% for pub in object_list %}
+        <tr>
+            <td> {{ pub.pk }} </td>
+            <td> <a href = "{% url 'publishing_house-detail' pub.pk %}"> {{ pub.publishing_house_name }}</a> </a></td>
+            <td> {{ pub.publishing_house_description }} </td>
+            <td> 
+                <a href = "{% url 'publishing_house-delete' pub.pk %}"> Delete </a> 
+                <a href="{% url 'publishing_house-update' pub.pk %}"> Update</a>                                                        
+            
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href=" {% url 'publishing_house-create' %} "> Add Publishing house </a>
+
+</body>
+</html>

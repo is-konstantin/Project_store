@@ -25,6 +25,29 @@ urlpatterns = [
     path('authors_cbv/<int:pk>/', views.AuthorDetail.as_view(), name = "author-detail_cbv"),
     path('authors-delete/<int:pk>/', views.authors_delete, name = "author-delete"),
     path('authors-delete-cbv/<int:pk>/', views.AuthorDelete.as_view() , name = "author-delete_cbv"),
-    path('author-create-cbv/', views.AuthorCrate.as_view(), name = "author-create_cbv"),
+    path('author-create-cbv/', views.AuthorCreate.as_view(), name = "author-create_cbv"),
     path('author-update-cbv/<int:pk>/', views.AuthorUpdate.as_view(), name = "author-update_cbv"),
+### Series
+    path('series/', views.SeriesList.as_view() , name = "series-list"),
+    path('series/<int:pk>/', views.SeriesDetail.as_view(), name = "series-detail"),
+    path('series_delete/<int:pk>/', views.SeriesDelete.as_view() , name = "series-delete"),
+    path('series-create/', views.SeriesCreate.as_view(), name = "series-create"),
+    path('series-update/<int:pk>/', views.SeriesUpdate.as_view(), name = "series-update"),
+
+### Genre
+    path('genre/', views.GenreList.as_view() , name = "genre-list"),
+    path('genre/<int:pk>/', views.GenreDetail.as_view(), name = "genre-detail"),
+    path('genre_delete/<int:pk>/', views.GenreDelete.as_view() , name = "genre-delete"),
+    path('genre-create/', views.GenreCreate.as_view(), name = "genre-create"),
+    path('genre-update/<int:pk>/', views.GenreUpdate.as_view(), name = "genre-update"),
+
+### Publishing_house
+    path('publishing_house/', views.Publishing_houseList.as_view() , name = "publishing_house-list"),
+    path('publishing_house/<int:pk>/', views.Publishing_houseDetail.as_view(), name = "publishing_house-detail"),
+    path('publishing_house_delete/<int:pk>/', views.Publishing_houseDelete.as_view() , name = "publishing_house-delete"),
+    path('publishing_house-create/', views.Publishing_houseCreate.as_view(), name = "publishing_house-create"),
+    path('publishing_house-update/<int:pk>/', views.Publishing_houseUpdate.as_view(), name = "publishing_house-update"),
+
 ]
+
+
