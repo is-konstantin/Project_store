@@ -45,17 +45,17 @@ class AuthorDetail( DetailView ):
     model = Author
 
 class AuthorDelete(DeleteView):
-    success_url = '/authors-cbv/'
+    success_url = '/authors/'
     model = Author
 
 class AuthorCreate(CreateView):
-    success_url = '/authors-cbv/'
+    success_url = '/authors/'
     model = Author
     fields = ('author_name', 'author_description')
 
 class AuthorUpdate(UpdateView):
     model = Author
-    success_url = '/authors-cbv/'
+    success_url = '/authors/'
     fields = ('author_name', 'author_description') 
 
 #### Series

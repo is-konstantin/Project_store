@@ -1,3 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page_title }} 
+{% endblock title %}
+
+{% block main_content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +35,8 @@
         </tr>
         {% endfor %}
     </table>
-    <a href=" {% url 'publishing_house-create' %} "> Add Publishing house </a>
+    <a href=" {% url 'publishing_house-create' %} " class = "btn btn-success"> Add Publishing house </a>
 
 </body>
 </html>
+{% endblock main_content %}

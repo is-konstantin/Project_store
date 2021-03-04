@@ -1,3 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page_title }} 
+{% endblock title %}
+
+{% block main_content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +35,9 @@
         </tr>
         {% endfor %}
     </table>
-    <a href=" {% url 'author-create_cbv' %} "> Add Author </a>
+    <a href=" {% url 'author-create_cbv' %} " class = "btn btn-success"> Add Author </a>
 
 </body>
 </html>
+
+{% endblock main_content %}
