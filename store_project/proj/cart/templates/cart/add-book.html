@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page_title }} 
+{% endblock title %}
+
+{% block main_content %}
+
+    <h1>{{ request.session.current_cart_pk }}</h1>
+    {{object}} <br> <hr>
+    <h1>Goods in the cart</h1>
+    <form action="{% url 'cart:recalculate-cart' %}" method="GET">
+      <table class = "table">
+        <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price per unit</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+        </thead>
+        
+        {% for book_in_cart in object.books.all %}
+          <tr>
+            <td> {{ book_in_cart.book.book_name }} </td>
+            <td> {{ book_in_cart.book.book_price }} </td>
+            <td> <input type="number" min=0 name="book_in_cart_{{book_in_cart.pk}}" value="{{ book_in_cart.quantity }}"> </td>
+            <td> {{ book_in_cart.total_price }} </td>
+          </tr>
+        {% endfor %}
+
+        <tr>
+          <td colspan="3"> <b>Total</b> </td>
+          <td> <b>{{ object.total_summ }}</b> </td>
+        </tr>
+
+      </table>
+      <button type="submit" name="btn" class="btn btn-success" value="recalculate">Recalculate</button>
+      <button type="submit" name="btn" class="btn btn-danger" value="checkout">Check out</button>
+    </form>
+    
+    
+
+    
+
+{% endblock main_content %}

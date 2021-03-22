@@ -25,7 +25,7 @@ SECRET_KEY = 'c5w$lt-kpnoohn!cndqvn%r&58zj7oa8o=e_%)s@w!@sd1)uzo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['iskonstantin.pythonanywhere.com']
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'book'
+    'book',
+    'cart',
+    'order'
 ]
 
 MIDDLEWARE = [

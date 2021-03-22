@@ -1,13 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import DetailView, ListView, DeleteView, CreateView, UpdateView   
+from django.views.generic import DetailView, ListView, DeleteView, CreateView, UpdateView, TemplateView   
 
 from book.models import Author
 from book.models import Series
 from book.models import Genre
 from book.models import Publishing_house
+from book.models import Book
 
 from . import forms
+
+class HomePage(TemplateView):
+    template_name = 'book/home-page.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["books"] = Book.objects.all().order_by("-pk")[:5]
+        #context["authors"] = Author.objects.all().order_by("pk")[:3]
+        return context
+
 
 # Create your views here.
 def authors_list(request):
@@ -124,7 +135,10 @@ class Publishing_houseUpdate(UpdateView):
     success_url = '/publishing_house/'
     fields = ('publishing_house_name', 'publishing_house_description')
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+
+
+
 
 
 

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page_title }} 
+{% endblock title %}
+
+{% block main_content %}
+
+    <h1>Home page</h1>
+
+    {% for book in books %}
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+          <h5 class="card-title">{{book.book_name}}</h5>
+          <a href="{% url 'cart:add-to-cart' %}?book={{book.pk}}" class="btn btn-primary">Add to cart</a>
+        </div>
+      </div>
+    {% endfor %}
+
+    
+
+
+{% endblock main_content %}
